@@ -16,40 +16,54 @@ namespace Deposito
         {
             get { return niveldepienso; }
         }
-        public void reponer1(decimal cantidadareponerdeagua)
+        public void reponer(decimal cantidadareponerdeagua , decimal cantidadareponerdepienso)
         {
             cantidadmaxima=antidadareponerdeagua+niveldeagua;
             if (cantidadareponerdeagua > 0 && cantidadmaxima < 10000);  //Tamaño del depósito de pienso es de 1000 l.
             niveldeagua=niveldeagua+cantidadareponerdeagua;
-              
 
+            Cant_Max_Pienso = cantidadareponerdepienso + niveldepienso;
+            if (cantidadareponerdepienso > 0 && Cant_Max_Pienso < 5000)  //Tamaño del depósito de pienso es de 5000 kg. 
+                niveldepienso = niveldepienso + cantidadareponerdepienso;
 
 
         }
-        public void reponer2(decimal cantidadareponerdepienso)
-        {
+      
 
+<<<<<<< Updated upstream
             cantidadmaxima2=cantidadareponerdepienso+niveldepienso;
             if (cantidadareponerdepienso > 0 && cantidadmaxima2 < 5000)  //Tamaño del depósito de pienso es de 5000 kg. 
             niveldepienso=niveldepienso+cantidadareponerdepienso;        }
+=======
+>>>>>>> Stashed changes
 
-
-        public decimal consumo1(decimal cantidadaretirardeagua)
+        public decimal consumo(decimal cantidadaretirardeagua, decimal cantidadaretirardepienso)
         {
             decimal retirado1 = 0; //Cantidad que se retira
             if (cantidadaretirardeagua > 0 && cantidadaretirardeagua <= niveldeagua)
             {   retirado1=cantidadaretirardeagua;
             niveldeagua=niveldeagua-cantidadaretirardeagua;}
-
-            return retirado1;
-        }
-        public decimal consumo2(decimal cantidadaretirardepienso)
-        {
-            decimal retirado2=0; //Cantidad que se retira
+            if(retirado1 > 0)
+            {
+                return retirado1;
+            }
+            
+            
+            decimal retirado2 = 0; //Cantidad que se retira
             if (cantidadaretirardepienso > 0 && cantidadaretirardepienso <= niveldepienso)
-            {   retirado2=cantidadaretirardepienso;
-                niveldepienso=niveldepienso-cantidadaretirardepienso;}
-            return retirado2;
+            {
+                retirado2 = cantidadaretirardepienso;
+                niveldepienso = niveldepienso - cantidadaretirardepienso;
+            }
+            if (retirado2 > 0)
+            {
+                return retirado2;
+            }
+
+            else { return 0; };
+
         }
+        
+       
     }
 }
