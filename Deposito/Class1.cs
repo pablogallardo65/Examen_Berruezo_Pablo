@@ -6,8 +6,8 @@ namespace Deposito
     {
         private decimal niveldeagua;
         private decimal niveldepienso;
-        private decimal cantidadmaxima;      //La cantidad máxima a reponer no puede superar el tamaño del DEPÓSITO DE AGUA, se comprueba antes de actualizar los niveles. 
-        private decimal cantidadmaxima2;     //La cantidad máxima a reponer no puede superar el tamaño del DEPÓSITO DE PIENSO, se comprueba antes de actualizar los niveles. 
+        private decimal Cant_Max_Agua;      //La cantidad máxima a reponer no puede superar el tamaño del DEPÓSITO DE AGUA, se comprueba antes de actualizar los niveles. 
+        private decimal Cant_Max_Pienso;     //La cantidad máxima a reponer no puede superar el tamaño del DEPÓSITO DE PIENSO, se comprueba antes de actualizar los niveles. 
         public decimal Niveldeagua
         {
             get { return niveldeagua; }
@@ -18,8 +18,8 @@ namespace Deposito
         }
         public void reponer1(decimal cantidadareponerdeagua)
         {
-            cantidadmaxima=antidadareponerdeagua+niveldeagua;
-            if (cantidadareponerdeagua > 0 && cantidadmaxima < 10000);  //Tamaño del depósito de pienso es de 1000 l.
+            Cant_Max_Agua=antidadareponereagua+niveldeagua;
+            if (cantidadareponerdeagua > 0 && Cant_Max_Agua < 10000);  //Tamaño del depósito de pienso es de 1000 l.
             niveldeagua=niveldeagua+cantidadareponerdeagua;
               
 
@@ -29,8 +29,8 @@ namespace Deposito
         public void reponer2(decimal cantidadareponerdepienso)
         {
 
-            cantidadmaxima2=cantidadareponerdepienso+niveldepienso;
-            if (cantidadareponerdepienso > 0 && cantidadmaxima2 < 5000)  //Tamaño del depósito de pienso es de 5000 kg. 
+            Cant_Max_Pienso=cantidadareponerdepienso+niveldepienso;
+            if (cantidadareponerdepienso > 0 && Cant_Max_Pienso < 5000)  //Tamaño del depósito de pienso es de 5000 kg. 
             niveldepienso=niveldepienso+cantidadareponerdepienso;        }
 
 
